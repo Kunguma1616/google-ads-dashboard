@@ -227,8 +227,8 @@ if st.button("Generate AI Campaign Insights"):
             Keep it short, specific, and actionable for the advertiser.
             """
 
-            # --- Your API Key (hard-coded here) ---
-            api_key = "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"
+            # ✅ Load API key from Streamlit Secrets
+            api_key = st.secrets["OPENROUTER_API_KEY"]
 
             headers = {
                 "Authorization": f"Bearer {api_key}",
@@ -238,7 +238,7 @@ if st.button("Generate AI Campaign Insights"):
             }
 
             payload = {
-                "model": "meta-llama/llama-3.3-70b-instruct:free",
+                "model": "meta-llama/llama-3.1-70b-instruct",  # ✅ valid model
                 "messages": [
                     {"role": "system", "content": "You are a PPC strategist analyzing Google Ads data."},
                     {"role": "user", "content": prompt}
@@ -261,4 +261,3 @@ if st.button("Generate AI Campaign Insights"):
 
         except Exception as e:
             st.error(f"AI request failed: {e}")
-
