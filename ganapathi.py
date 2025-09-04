@@ -228,7 +228,7 @@ if st.button("Generate AI Campaign Insights"):
             """
 
             # --- Your API Key (hard-coded here) ---
-            api_key = "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"
+            api_key = "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"
 
             headers = {
                 "Authorization": f"Bearer {api_key}",
@@ -261,3 +261,4 @@ if st.button("Generate AI Campaign Insights"):
 
         except Exception as e:
             st.error(f"AI request failed: {e}")
+
